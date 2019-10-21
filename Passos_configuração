@@ -1,0 +1,158 @@
+1.
+Criar pasta do projeto
+mkdir gobarber
+cd gobarber
+2.
+yarn init -y
+code .
+yarn add express
+
+3.
+Criar pasta src (Pasta pra todo o código)
+
+No src
+app.js -> configurar o servidor
+server.js -> criar servidor
+routes.js -> definir as rotas
+
+(sucrase -> utilizar sintaxe nova do ejs)
+
+4.
+yarn add sucrase nodemon
+
+Pra rodar com sucrase e nodemon
+No package.json
+"scripts":{
+"dev":"nodemon src/server.js"
+dev:debug":"nodemon --inspect src/server.js"
+
+},
+
+criar arquivo nodemon.json na raiz(pasta que o src está)
+No nodemon.json
+{
+"execMap": {
+"js":"node -r sucrase/register"
+}
+}
+
+Configurar o debugger
+No launch.json
+Resquest:"attach",
+"restart":"true",
+"protocol":"inspector"
+
+5. Configurar docker CE
+Se já instalado
+docker -v
+
+Testar
+docker help
+
+Criar serviço de postgres
+docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11
+
+Listar containers em execução
+docker ps
+
+Teste
+docker stop database
+docker ps -a
+docker start database
+
+6. Configurar Postbird
+Se já instalado
+
+Selecionar database
+
+Criar database: Create database
+
+
+7. Padronizar código
+
+7.1 Instalar ESLint
+yarn add eslint -D
+yarn eslint --init
+
+Check sy, fin prob and enforc cod style
+Import Export
+None
+Node ( desmarcar browser)
+Use popular
+Airbnb
+Javascript
+Y
+
+Apagar o packagelock.json
+Rodar um 'yarn'
+
+Settings.json
+"eslint.autoFixOnSave":true
+
+"eslint.validate":[
+{
+"language": "javascript",
+"autoFix": true
+},
+{
+"language": "javascriptreact",
+"autoFix": true
+}
+]
+
+No .eslintrc.js
+Sobrescrever regras
+    "prettier/prettier":"error",
+    "class-methods-use-this":"off",
+    "no-param-reassign":"off",
+    "camel-case":"off",
+    "no-unused-vars":["error", {"argsIgnorePattern":"next"}],
+
+7.2 Instalar prettier
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+No .eslintrc.js
+extends: [
+    'airbnb-base','prettier'
+  ],
+  plugins: [
+    'prettier'
+  ],
+
+
+Criar arquivo .prettierrc
+No arquivo
+{
+  "singleQuote": true,
+  "trailingComma":"es5"
+}
+
+7.3 Instalar EditorConfig
+Se já instalado
+Clicar com botão direito > generate editorconfig
+trocar últimos dois por true
+
+Assistir Sequelize & MVC pra lembrar
+8. Sequelize
+
+Na pasta src
+Criar pasta app
+Criar pasta config
+Criar pasta database
+
+Na pasta app 
+criar pastas models e controllers
+
+Na pasta config
+Criar database.js
+
+Na database
+Criar paste migrations
+
+yarn add sequelize
+yarn add sequelize-cli -D
+
+Criar arquivo .sequelizerc
+
+yarn add pg pg-hstore
+
