@@ -6,6 +6,7 @@
   "author": "davim5 <davim53@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
